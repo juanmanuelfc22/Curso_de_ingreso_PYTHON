@@ -22,7 +22,7 @@
  
 * Cada concepto abordado tiene una serie de ejercicios a resolver. 
 
-* Se debe realizar los ejercicios en el orden que se presentan.
+* Se debe realizar los ejercicios en el orden que se presentan. En el orden que se presentan.
 
 * Los ejercicios tienen un incremento de complejidad que acompaña la complejidad del tema abordado.
 
