@@ -104,9 +104,21 @@ class App(customtkinter.CTk):
     # - bool: True, False
     # vacio = None # tipo de dato None, es un tipo de dato que representa la ausencia de valor.
 
+    # Cómo usar datos e interatuar con el usuario?
+    # Alert, question y prompt
+    # - alert: una función que recibe 
+    #  alert("Hola mundo", "Otro mensaje")
+
     # a partir de aquí se escribe el código que vamos a trabajar
     def btn_mostrar_on_click(self):
-        pass
+
+        # alert("Esto es un alert", "mensaje del alert")
+        # question("Esto es un question", "mensaje del question")
+
+        respuest_prompt = prompt("Ingrese su nombre", "Nombre")
+
+        
+
 
 
 if __name__ == "__main__":
