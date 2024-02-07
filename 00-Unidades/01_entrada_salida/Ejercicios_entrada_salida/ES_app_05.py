@@ -40,7 +40,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        # Obtengo los valores de los campos de texto
+        nombre = self.txt_nombre.get()
+        edad = self.txt_edad.get()
+
+        # Muestro la salida en un alert
+        alert("Sus Datos", "Usted se llama {0} y su edad es de {1} años".format(nombre, edad))
 
         
     
