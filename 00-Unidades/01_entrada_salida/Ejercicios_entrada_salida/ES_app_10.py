@@ -34,6 +34,18 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, padx=30, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
+        # Entrada: obtener el valor del importe y convertirlo a int
+        importe = int(self.txt_importe.get())
+        
+        # Proceso: descontarle un 20% al importe
+        descuento = int(importe * 0.20)
+        importe_final = int(importe - descuento)
+
+
+        # Salida: mostrar la info en un alert
+        alert("El importe menos 20%",
+              "Importe original\t${0}\n- 20% \t\t- ${1}\n\t\t---\nImporte final\t${2}".format(importe, descuento, importe_final))
+
         pass
 
 
