@@ -11,8 +11,10 @@ apellido: Fernández Casenave
 Ejercicio: entrada_salida_09
 ---
 Enunciado:
-Al presionar el botón 'Calcular', se deberá obtener el valor contenido en la caja de texto (txtSueldo), 
-transformarlo a número y mostrar el importe de sueldo actualizado con el incremento del 15% utilizando el Dialog Alert.
+Al presionar el botón 'Calcular',
+se deberá obtener el valor contenido en la caja de texto (txtSueldo),
+transformarlo a número y mostrar el importe de sueldo actualizado
+con el incremento del 15% utilizando el Dialog Alert.
 '''
 
 class App(customtkinter.CTk):
@@ -33,8 +35,17 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        # Entrada: obtener el valor del sueldo y convertirlo a int
+        sueldo = int(self.txt_sueldo.get())
         
+        # Proceso: agregarle 15% al sueldo
+        porcentaje = int(sueldo * 0.15)
+        sueldo_final = int(sueldo + porcentaje)
+
+
+        # Salida: mostrar la info en un alert
+        alert("El sueldo más 15%",
+              "Sueldo original\t\t${0}\n15% adicional\t\t${1}\nSueldo + 15%\t\t${2}\n\nLa inflación siempre es un fenómeno monetario ".format(sueldo, porcentaje, sueldo_final))
     
 if __name__ == "__main__":
     app = App()
