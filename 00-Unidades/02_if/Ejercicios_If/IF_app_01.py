@@ -33,7 +33,17 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        # Entrada.
+        # E1. Obtener el contenido de la caja de texto txt_edad
+        # E2. Transformar el contenido en número 
+        edad = self.txt_edad.get()
+        edad = int(edad)
+
+        # Proceso.
+        # P1. Verificar si edad == 18
+        if edad == 18:
+            alert("Ejercicios IF num 1","Usted tiene 18 años")
+
 
          
 if __name__ == "__main__":
