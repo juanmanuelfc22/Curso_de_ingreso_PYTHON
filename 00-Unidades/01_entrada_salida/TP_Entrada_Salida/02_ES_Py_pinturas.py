@@ -48,10 +48,30 @@ class App(customtkinter.CTk):
         self.btn_convertir_f_c.grid(row=4, pady=10, columnspan=2, sticky="nsew")
     
     def btn_convertir_c_f_on_click(self):
-        pass
+        # A. Al ingresar una temperatura en Fahrenheit debemos mostrar la temperatura en Centígrados con un mensaje concatenado 
+        # (0 °F − 32) × 5/9 = -17,78 °C
+
+        # Entrada: obtener el dato a convertir, los °F para converitr a °C
+        temp_f = round(float(self.txt_temperatura_c.get()),2)
+
+        # Proceso: convertir la temp a °F
+        temp_f_a_c = round(((temp_c * 9 / 5) + 32),2)
+
+        # Salida: aplicar la leyenda correspondiente
+        alert("Conversor de temp de F° a C°", "({0}°C - 32) x 5/9 = {1}°F".format(temp_f, temp_f_a_c))
+
+
 
     def btn_convertir_f_c_on_click(self):
-        pass
+        # B. Al ingresar una temperatura en Centígrados debemos mostrar la temperatura en Fahrenheit 
+        # (0 °C × 9/5) + 32 = 32 °F
+
+        # Entrada: obtener los los °C para convertir a °F
+        temp_c = self.txt
+
+
+        temp_f = self.txt_temperatura_f.get()
+        print(temp_f)
     
     
 if __name__ == "__main__":
