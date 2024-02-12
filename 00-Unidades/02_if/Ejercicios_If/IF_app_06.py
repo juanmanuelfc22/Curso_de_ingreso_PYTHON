@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Juan Manuel
+apellido: Fernández Casenave
 ---
 Ejercicio: if_06
 ---
@@ -30,15 +30,35 @@ class App(customtkinter.CTk):
         self.txt_edad = customtkinter.CTkEntry(master=self)
         self.txt_edad.grid(row=0, column=1)
                 
-        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
+        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Calcular", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
+# Enunciado:
+# Al presionar el botón 'Calcular', se deberá obtener el contenido de la caja de texto txtEdad, 
+# transformarlo en número y calcular si es mayor, niño/a(menor de 10) o pre-adolescente 
+# (edad entre 10 y 13 años) o adolescente (edad entre 13 y 17 años) de edad, 
+# se deberá informar utilizando el Dialog alert.
 
     def btn_mostrar_on_click(self):
-        pass
+        # Entrada
+        # E1: obtener el contenido de la caja de texto txtEdad
+        # E2: convirtir el texto a número
+        edad = self.txt_edad.get()
+        edad = int(edad)
 
-        
-        
+        # Proceso y salida
+        # P1 y S1: verificar las edades con IFs e informar por Salida el resultado
+        titulo_ejer = "Ejercicio num 6 IF"
+        if edad >= 18:
+            alert(titulo_ejer, "Es mayor de edad")
+        elif edad >=13 and edad<18:
+            alert(titulo_ejer, "Es adloscente")
+        elif edad >=10 and edad<13:
+            alert(titulo_ejer, "Es pre adloscente")
+        else:
+            alert(titulo_ejer, "Es menor de 10")
+            
+       
     
 if __name__ == "__main__":
     app = App()
