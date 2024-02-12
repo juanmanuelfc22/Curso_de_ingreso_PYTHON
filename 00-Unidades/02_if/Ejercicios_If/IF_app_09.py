@@ -27,9 +27,18 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        titulo = "Ejercicio 9 de IF"
+        # Entrada y Proceso
+        # E1 y P1 generar el num aleatorio entre 1 y 10 inclusive
         numero_aleatorio = random.randint(1, 10)
+
+        # Salida
+        # S1. Mostrar por alert el numero generado
+        titulo = "Ejercicio 9 de IF"
         alert(titulo, "Un num aleatorio entre 1 y 10: {0}". format(numero_aleatorio))
+
+        
+
+    
 
 
 if __name__ == "__main__":
