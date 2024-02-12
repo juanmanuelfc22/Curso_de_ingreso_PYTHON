@@ -37,12 +37,49 @@ class App(customtkinter.CTk):
         self.combobox_tipo = customtkinter.CTkComboBox(master=self, values=["NATIVO", "NATURALIZADO"])
         self.combobox_tipo.grid(row=1, column=1, padx=20, pady=10)
                 
-        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
+        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar Eligibilidad de Voto", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
-        pass
+        # Entrada
+        # E1. Obtener la edad de la persona
+        # E2. Convertir la edad de la persona a número
+        # E3. Obtener el estado de residencia de la persona
+        edad = self.txt_edad.get()
+        edad = int(edad)
+        estado = self.combobox_tipo.get()
+        print(edad ,estado)
+
+        # Proceso y salida
+        # P1. verificar la edad
+        # P2. verificar la combo de edad y estado naturalizado
+        # P3. en fn de las diferentes combos informar salida si puede o no
+
+        # Cadenas para el resultado
+        titulo = "Ejercicio num 7 IF"
+        votar_si = "PUEDE VOTAR."
+        votar_no = "NO PUEDE VOTAR."
+        menor_nac = "Siendo Arg. nativo debe tener mínimo 16 años para votar"
+        menor_nat = "Siendo naturalizado debe tener mínimo 18 años para votar"
+
+        if edad < 16:
+            if estado == "NATIVO":
+                alert(titulo, "{0} {1}".format(votar_no, menor_nac))
+            else:
+            # if estado == "NATURALIZADO":
+                alert(titulo, "{0} {1}".format(votar_no, menor_nat))
+        elif edad >= 16 and edad <18:
+            if estado == "NATIVO":
+                alert(titulo, votar_si)
+            else:
+                alert(titulo, "{0} {1}".format(votar_no, menor_nat))
+        else:
+            alert(titulo, votar_si)
+
+
+
+
         
         
     
