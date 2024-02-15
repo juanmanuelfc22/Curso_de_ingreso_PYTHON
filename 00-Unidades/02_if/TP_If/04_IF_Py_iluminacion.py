@@ -69,6 +69,11 @@ class App(customtkinter.CTk):
         if cant >= 6:
 
             # Agregar el descuento adicional del 5% si precio > 4000 
+            # ACLARACION! el descuento adicional se aplica SOLAMETENTE
+            # si el precio final es mayor a 4000. En la única condición que se
+            # aplica el descuento adicional es en la primera condición, 
+            # dado que es la única que puede superar los 4000.
+            # En las demás condiciones, el precio final no supera los 4000.
             if precio > 4000:
                 desc_categoria = int(precio * 0.5)
                 tot_parcial = int(precio - desc_categoria)
