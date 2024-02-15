@@ -45,6 +45,8 @@ class App(customtkinter.CTk):
         # P.1 Calcular si es adolescnete 13 y 17 años ES ADOLESCENTE
         if edad >=13 and edad<=17:
             alert("Ejerci num 5 de IF","ES Adolescente")
+        else:
+            alert("Ejerci num 5 de IF","NO ES Adolescente")
 
 
 if __name__ == "__main__":
