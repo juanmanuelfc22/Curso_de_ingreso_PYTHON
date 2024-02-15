@@ -97,9 +97,98 @@ class App(customtkinter.CTk):
                 )
                 alert("TP if",string_final)
 
+        # Si compra 5 lamparitas bajo consumo marca "ArgentinaLuz"
+        # se hace un descuento del 40 % y si de otra marca el desc 30%.
+        if cant == 5:
+            if marca == "ArgentinaLuz":
+                desc_categoria = int(precio * 0.4)
+                tot_final = precio - int(desc_categoria)
+                
+                string_final = (
+                    f"Total\t\t ${precio}\n"
+                    f"Descuento\t-${desc_categoria}\n"
+                    f"---\n"
+                    f"TOTAL final\t ${tot_final}"
+                )
+                alert("TP if",string_final)
+            else:
+                desc_categoria = int(precio * 0.3)
+                tot_parcial = int(precio - desc_categoria)
+                tot_final = precio - int(desc_categoria)
+                
+                string_final = (
+                    f"Total\t\t ${precio}\n"
+                    f"Descuento\t-${desc_categoria}\n"
+                    f"---\n"
+                    f"TOTAL final\t ${tot_final}"
+                )
+                alert("TP if",string_final)
 
+        # Si compra 4 lamparitas bajo consumo
+        # marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25% 
+        # y si es de otra marca el descuento es del 20%.
+        if cant == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                desc_categoria = int(precio * 0.25)
+                tot_final = precio - int(desc_categoria)
+                
+                string_final = (
+                    f"Total\t\t ${precio}\n"
+                    f"Descuento\t-${desc_categoria}\n"
+                    f"---\n"
+                    f"TOTAL final\t ${tot_final}"
+                )
+                alert("TP if",string_final)
+            else:
+                desc_categoria = int(precio * 0.2)
+                tot_final = precio - int(desc_categoria)
+                
+                string_final = (
+                    f"Total\t\t ${precio}\n"
+                    f"Descuento\t-${desc_categoria}\n"
+                    f"---\n"
+                    f"TOTAL final\t ${tot_final}"
+                )
+                alert("TP if",string_final)
 
-
+        # Si compra 3 lamparitas bajo consumo marca "ArgentinaLuz"
+        # el descuento es del 15%,
+        # si es “FelipeLamparas” se hace un descuento del 10 % 
+        # y si es de otra marca un 5%.
+        if cant == 3:
+            if marca == "ArgentinaLuz":
+                desc_categoria = int(precio * 0.15)
+                tot_final = precio - int(desc_categoria)
+                
+                string_final = (
+                    f"Total\t\t ${precio}\n"
+                    f"Descuento\t-${desc_categoria}\n"
+                    f"---\n"
+                    f"TOTAL final\t ${tot_final}"
+                )
+                alert("TP if",string_final)
+            elif marca == "FelipeLamparas":
+                desc_categoria = int(precio * 0.1)
+                tot_final = precio - int(desc_categoria)
+                
+                string_final = (
+                    f"Total\t\t ${precio}\n"
+                    f"Descuento\t-${desc_categoria}\n"
+                    f"---\n"
+                    f"TOTAL final\t ${tot_final}"
+                )
+                alert("TP if",string_final)
+            else:
+                desc_categoria = int(precio * 0.05)
+                tot_final = precio - int(desc_categoria)
+                
+                string_final = (
+                    f"Total\t\t ${precio}\n"
+                    f"Descuento\t-${desc_categoria}\n"
+                    f"---\n"
+                    f"TOTAL final\t ${tot_final}"
+                )
+                alert("TP if",string_final)
 
 
         
