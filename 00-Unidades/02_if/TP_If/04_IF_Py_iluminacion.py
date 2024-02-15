@@ -57,69 +57,46 @@ class App(customtkinter.CTk):
         # Entrada
         # E1. Obtener la cantidad de lamparitas
         # E2. Obtener la marca de las lamparitas
-        cantidad = int(self.combobox_cantidad.get())
+        cant = int(self.combobox_cantidad.get())
         marca = self.combobox_marca.get()
 
         # Proceso y salida
         # En funcion de las reglas de negocio: según la cantidad y la marca de las lamparitas
         # calculo el precio final y luego aplico los descuentos
-        precio = 800 * cantidad
+        precio = 800 * cant
 
         # Si compra 6 o más lamparitas bajo consumo tiene un descuento del 50%. 
-        if cantidad >= 6:
-            desc = int(precio * 0.5)
-            desc_str = "Descuento -$" + str(desc) + "\n"
-            total = int(precio - desc)
-            tot_str = "Total $" + str(total) + "\n"
+        if cant >= 6:
 
-            if total > 4000:
-                desc_adicional = int(total * .05)
-                desc_adic_str = "Descuento adic -$" + str(desc_adicional) + "\n"
-                total_final = precio - desc_adicional
-                total_final_str = "TOTAL FINAL $" + str(total_final)
-                alert("TP if", "${0}{1}{2}{3}{4}".format(total, desc_str, tot_str, desc_adic_str, total_final_str))
+            # Agregar el descuento adicional del 5% si precio > 4000 
+            if precio > 4000:
+                desc_categoria = int(precio * 0.5)
+                tot_parcial = int(precio - desc_categoria)
+                desc_adicional = int(tot_parcial * 0.05)
+                tot_final = precio - int((desc_categoria + desc_adicional))
+                
+                string_final = (
+                    f"Total\t\t ${precio}\n"
+                    f"Descuento\t-${desc_categoria}\n"
+                    f"Total parcial\t ${tot_parcial}\n"
+                    f"---\n"
+                    f"Desc adicional\t-${desc_adicional}\n"
+                    f"TOTAL final\t ${tot_final}"
+                )
+                alert("TP if",string_final)
+            else:
+                desc_categoria = int(precio * 0.5)
+                tot_parcial = int(precio - desc_categoria)
+                tot_final = precio - int(desc_categoria)
+                
+                string_final = (
+                    f"Total\t\t ${precio}\n"
+                    f"Descuento\t-${desc_categoria}\n"
+                    f"---\n"
+                    f"TOTAL final\t ${tot_final}"
+                )
+                alert("TP if",string_final)
 
-            # alert("TP if", "Precio ${0}\n- Descuento ${1}\nTotal ${2}".format(precio, descuento, total))
-        # Si compra 5 lamparitas bajo consumo marca "ArgentinaLuz"
-        # se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
-        elif cantidad == 5:
-            if marca == "ArgentinaLuz":
-                descuento = int(precio * 0.4)
-                total = int(precio - descuento)
-                alert("TP if", "Precio ${0}\n- Descuento ${1}\nTotal ${2}".format(precio, descuento, total))
-            else:
-                descuento = int(precio * 0.3)
-                total = int(precio - descuento)
-                alert("TP if", "Precio ${0}\n- Descuento ${1}\nTotal ${2}".format(precio, descuento, total))
-        # Si compra 4 lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas”
-        # se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
-        elif cantidad == 4:
-            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-                descuento = int(precio * 0.25)
-                total = int(precio - descuento)
-                alert("TP if", "Precio ${0}\n- Descuento ${1}\nTotal ${2}".format(precio, descuento, total))
-            else:
-                descuento = int(precio * 0.2)
-                total = int(precio - descuento)
-                alert("TP if", "Precio ${0}\n- Descuento ${1}\nTotal ${2}".format(precio, descuento, total))
-        # Si compra 3 lamparitas bajo consumo marca "ArgentinaLuz"
-        # el descuento es del 15%, si es “FelipeLamparas” se hace un descuento del 10 % 
-        # y si es de otra marca un 5%.
-        elif cantidad == 3:
-            if marca == "ArgentinaLuz":
-                descuento = int(precio * 0.15)
-                total = int(precio - descuento)
-                alert("TP if", "Precio ${0}\n- Descuento ${1}\nTotal ${2}".format(precio, descuento, total))
-            elif marca == "FelipeLamparas":
-                descuento = int(precio * 0.1)
-                total = int(precio - descuento)
-                alert("TP if", "Precio ${0}\n- Descuento ${1}\nTotal ${2}".format(precio, descuento, total))
-            else:
-                descuento = int(precio * 0.05)
-                total = int(precio - descuento)
-                alert("TP if", "Precio ${0}\n- Descuento ${1}\nTotal ${2}".format(precio, descuento, total))
-        else:
-            alert("TP if", "No se puedo calcular por haber comprado menos de 3 lamparitas")
 
 
 
