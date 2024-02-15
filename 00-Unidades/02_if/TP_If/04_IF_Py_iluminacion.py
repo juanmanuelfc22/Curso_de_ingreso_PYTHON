@@ -195,9 +195,6 @@ class App(customtkinter.CTk):
                 )
                 alert("TP if",string_final)
 
-
-        
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
