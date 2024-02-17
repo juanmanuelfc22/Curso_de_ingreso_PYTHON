@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Juan Manuel
+apellido: Fernandez Casenave
 ---
 Ejercicio: Match_07
 ---
@@ -34,7 +34,21 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        
+        destino = self.combobox_destino.get()
+
+        match destino:
+            case "Bariloche":
+                mensaje = "Bariloche se encuentra en el oeste"
+            case "Mar del plata":
+                mensaje = "Bariloche se encuentra en el este"
+            case "Cataratas":
+                mensaje = "Bariloche se encuentra en el norte"
+            case "Ushuaia":
+                mensaje = "Bariloche se encuentra en el sur"
+
+        alert("Ejer 7 MATCH", mensaje)
+
     
     
 if __name__ == "__main__":
