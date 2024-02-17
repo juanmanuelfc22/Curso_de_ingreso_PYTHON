@@ -46,12 +46,15 @@ class App(customtkinter.CTk):
 
             hora = int(hora)
 
-            match (hora):
+            match hora:
                 case 7 | 8 | 9 | 10 | 11:
                     mensaje = "Es de mañana"
                 case 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19:
                     mensaje = "Es de tarde"
                 case _:
+                    match hora:
+                        case (hora < 1):
+
                     mensaje = "Es de noche"
                     print ("es de noche")
         else:
