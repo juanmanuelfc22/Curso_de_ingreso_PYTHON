@@ -50,13 +50,20 @@ class App(customtkinter.CTk):
         aprobado = "Aprobado, la nota es "
         promomocion = "Promoción directa, la nota es "
 
-        if (numero_aleatorio <= 3):
-            alert(titulo, "{0} {1}".format(desaprobado, numero_aleatorio))
-        elif (numero_aleatorio > 3 and numero_aleatorio <= 5):
-            alert(titulo, "{0} {1}".format(aprobado, numero_aleatorio))
-        else:
-            alert(titulo, "{0} {1}".format(promomocion, numero_aleatorio))
+        # if (numero_aleatorio <= 3):
+        #     alert(titulo, "{0} {1}".format(desaprobado, numero_aleatorio))
+        # elif (numero_aleatorio > 3 and numero_aleatorio <= 5):
+        #     alert(titulo, "{0} {1}".format(aprobado, numero_aleatorio))
+        # else:
+        #     alert(titulo, "{0} {1}".format(promomocion, numero_aleatorio))
 
+        if (numero_aleatorio > 3):
+            if (numero_aleatorio >5):
+               alert(titulo, "{0} {1}".format(promomocion, numero_aleatorio))
+            else:
+                alert(titulo, "{0} {1}".format(aprobado, numero_aleatorio))
+        else:
+            alert(titulo, "{0} {1}".format(desaprobado, numero_aleatorio))
 
 
 if __name__ == "__main__":

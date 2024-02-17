@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Juan Manuel
+apellido: Fernandez Casenave
 ---
 Ejercicio: Match_05
 ---
@@ -35,7 +35,26 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        hora = self.txt_hora.get()
+
+        if hora.isdigit():
+            hora = int(hora)
+            match hora:
+                case 7 | 8 | 9 | 10 | 11:
+                    mensaje = "Es de mañana"
+                case _:
+                    mensaje = "No es de mañana"
+        else:
+            mensaje = "Ingresar solo un número entero del 1 al 12"
+
+        alert("Ejer 5 MATCH", mensaje)
+       
+
+        
+
+
+
+
     
     
 if __name__ == "__main__":
