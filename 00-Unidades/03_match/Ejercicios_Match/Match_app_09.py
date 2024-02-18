@@ -74,10 +74,12 @@ class App(customtkinter.CTk):
         estacion = self.combobox_estaciones.get()
         destino = self.combobox_destino.get()
         precio = 15000
-        # precio_10 = int(precio * 1.1)
-        # precio_20 = int(precio * 1.2)
-        precio_10 = f"el precio a {destino} en {estacion} es {precio_10}"
-        precio_20 = f"el precio a {destino} en {estacion} es {precio_20}"
+        precio_mas_10 = int(precio * 1.1)
+        precio_mas_20 = int(precio * 1.2)
+        precio_normal = f"el precio a {destino} en {estacion} es {precio}"
+        precio_10 = f"el precio a {destino} en {estacion} es {precio_mas_10}"
+        precio_20 = f"el precio a {destino} en {estacion} es {precio_mas_20}"
+
 
 
 
@@ -85,36 +87,23 @@ class App(customtkinter.CTk):
             case "Primavera" | "Otoño":
                 match destino:
                     case "Cordoba":
-                        mensaje = f"el precio a {destino} en {estacion} es {precio}"
+                        mensaje = precio_normal
                     case _:
                         mensaje = precio_10
-                        # mensaje = f"el precio a {destino} en {estacion} es {precio_10}"
             case "Invierno":
                 match destino:
                     case "Cataratas" | "Cordoba":
                         mensaje = precio_10
-                        # mensaje = f"el precio a {destino} en {estacion} es {precio_10} "
                     case _:
                         mensaje = precio_20
-                        # mensaje = f"el precio a {destino} en {estacion} es {precio_20} "
             case "Verano":
                 match destino:
                     case "Cataratas" | "Cordoba":
                         mensaje = precio_10
-                        # mensaje = f"el precio a {destino} en {estacion} es {precio_10} "
                     case _:
                         mensaje = precio_20
             
         alert("Ejerc 9 de MATCH", mensaje)
-
-
-
-
-
-
-
-
-   
             
     
 if __name__ == "__main__":
