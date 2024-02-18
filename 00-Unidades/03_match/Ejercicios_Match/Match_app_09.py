@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Juan Manuel
+apellido: Fernández Casenave
 ---
 Ejercicio: Match_09
 ---
