@@ -53,26 +53,11 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        # Partes del programa: Entrada -> Proceso -> Salida
-
-        # Entrada
-        # E1. Obtener la cantidad de lamparitas
-        # E2. Obtener la marca de las lamparitas
         cantidad = int(self.combobox_cantidad.get())
         marca = self.combobox_marca.get()
 
-        # Proceso
-        # P1. Calculo el monto ininial de la factura
-        # P2. Calculo los descuentos según las reglas de negocio
-        # P3. Si existe calculo el descuento adicional
-        # P4. Calculo el monto final de la factura
-
-        # P1
-        # Calculo el monto ininial de la factura
         factura_inicial = cantidad * 800
         
-        # P2
-        # Calculo los descuentos según las reglas de negocio
         descuento = 0
         descuento_adicional = 0.05
         monto_descuento = 0
@@ -100,20 +85,14 @@ class App(customtkinter.CTk):
         else:
             descuento = 0
         
-        # P3
         monto_descuento = int(factura_inicial * descuento)
         total_parcial = int(factura_inicial - monto_descuento)
 
-        # P4
-        # Aplico el descuento adicional si total_parcial > 4000
         if total_parcial > 4000:
-            monto_descuento_adicional = total_parcial * descuento_adicional
+            monto_descuento_adicional = int(total_parcial * descuento_adicional)
         
-        # Calculo el monto final de la factura
         factura_final = int(total_parcial - monto_descuento_adicional)
 
-        # Salida
-        # S1. Informo los detalles de de la factura
         informe_final = (
             f"Compra de {cantidad} u. {marca}\n\n"
             f"Total\t\t ${factura_inicial}\n"
