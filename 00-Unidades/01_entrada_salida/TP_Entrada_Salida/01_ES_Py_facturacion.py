@@ -61,7 +61,7 @@ class App(customtkinter.CTk):
 
         titulo = "TP 1 Entrada/Salida"
 
-        resultado = f"{prec1} + {prec2} + {prec3} = {suma}"
+        resultado = f"${prec1} + ${prec2} + ${prec3} = ${suma}"
 
         alert(titulo, resultado)
 
