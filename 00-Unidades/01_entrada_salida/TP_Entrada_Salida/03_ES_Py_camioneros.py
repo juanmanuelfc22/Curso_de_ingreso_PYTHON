@@ -52,37 +52,24 @@ class App(customtkinter.CTk):
         self.btn_tiempo_llegada.grid(row=4, pady=10, padx=30, columnspan=2, sticky="nsew")
     
     def btn_cantidad_camiones_on_click(self):
-
-        # Entrada
-        # E1. obatener el valor de toneladas y convertirlo a entero
         toneladas = int(self.txt_toneladas.get())
-
-        # Proceso
-        # P1. calcular la cantidad de camiones necesarios a razón de 3500kg por camión
-        # Utilizo la división entera para obtener la cantidad de camiones necesarios
         camiones = toneladas // 3500
 
-        # Salida
-        # S1. mostrar la cantidad de camiones necesarios
-        alert("TP 3 de entradas/salidas", "Se necesitan {0} camiones para transportar {1} toneladas".format(camiones, toneladas))
+        titulo = "TP 3 de entradas/salidas"
+        respuesta = f"Se necesitan {camiones} camiones {toneladas} toneladas"
 
+        alert(titulo, respuesta)
 
     def btn_tiempo_llegada_on_click(self):
+        km = int(self.txt_kilometros.get())
 
-        # Entrada
-        # E1. obtener el valor de kilómetros y convertirlo a entero
-        kilometros = int(self.txt_kilometros.get())
+        horas = round(km / 90, 2)
 
-        # Proceso
-        # P1. calcular el tiempo de llegada a razón de 90km/h
-        # Utilizo la división entera para obtener la cantidad de horas necesarias
-        horas = round(kilometros / 90, 2)
+        titulo = "TP 3 de entradas/salidas"
+        respuesta = f"El tiempo de llegada es de {horas} horas"
 
-        # Salida
-        # S1. mostrar el tiempo de llegada
-        alert("TP 3 de entradas/salidas", "El tiempo de llegada es de {0} horas".format(horas))
-    
-    
+        alert(titulo, respuesta)
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
