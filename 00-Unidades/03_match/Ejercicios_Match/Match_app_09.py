@@ -57,7 +57,64 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+    # Si es invierno: 
+    #     Bariloche tiene un aumento del 20% 
+    #     Cataratas y Córdoba tienen un descuento del 10%
+    #     mar del plata tiene un descuento del 20%
+    # si es verano:
+    #     bariloche tiene un descuento del 20%
+    #     cataratas y cordoba tienen un aumento del 10%
+    #     mar del plata tiene un aumento del 20%
+    # si es primavera u otoño:
+    #     bariloche tiene un aumento del 10%
+    #     cataratas tiene un aumento del 10%
+    #     mar del plata tiene un aumento del 10%
+    #     córdoba tiene precio sin descuento
+
+        estacion = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+        precio = 15000
+        # precio_10 = int(precio * 1.1)
+        # precio_20 = int(precio * 1.2)
+        precio_10 = f"el precio a {destino} en {estacion} es {precio_10}"
+        precio_20 = f"el precio a {destino} en {estacion} es {precio_20}"
+
+
+
+        match estacion:
+            case "Primavera" | "Otoño":
+                match destino:
+                    case "Cordoba":
+                        mensaje = f"el precio a {destino} en {estacion} es {precio}"
+                    case _:
+                        mensaje = precio_10
+                        # mensaje = f"el precio a {destino} en {estacion} es {precio_10}"
+            case "Invierno":
+                match destino:
+                    case "Cataratas" | "Cordoba":
+                        mensaje = precio_10
+                        # mensaje = f"el precio a {destino} en {estacion} es {precio_10} "
+                    case _:
+                        mensaje = precio_20
+                        # mensaje = f"el precio a {destino} en {estacion} es {precio_20} "
+            case "Verano":
+                match destino:
+                    case "Cataratas" | "Cordoba":
+                        mensaje = precio_10
+                        # mensaje = f"el precio a {destino} en {estacion} es {precio_10} "
+                    case _:
+                        mensaje = precio_20
+            
+        alert("Ejerc 9 de MATCH", mensaje)
+
+
+
+
+
+
+
+
+   
             
     
 if __name__ == "__main__":
