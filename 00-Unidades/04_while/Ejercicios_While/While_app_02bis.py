@@ -29,7 +29,21 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
+
+        acumulador = 0
+        iterador = 1
+
+        while iterador <= 10:
+            if iterador %2 == 0:
+                acumulador += iterador
+                alert("titulo", f"suma de los pares hasta ahora: {acumulador}")
+            
+            iterador += 1
+        
+
+
+
+
     
     
 if __name__ == "__main__":
