@@ -70,7 +70,7 @@ class App(customtkinter.CTk):
         descuento = 0
 
         match cant_lamp:
-            case cant_lamp if cant_lamp >= 6:
+            case 6 | 7 | 8 | 9 | 10 | 11 | 12:
                 descuento = 0.5
             case 5:
                 match marca:
