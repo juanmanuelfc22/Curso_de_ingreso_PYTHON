@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Juan Manuel
+apellido: Fernández Casenave
 ---
 Ejercicio: while_09
 ---
@@ -15,7 +15,6 @@ Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos l
 hasta que presione el botón Cancelar (en el prompt). 
 Luego determinar el máximo y el mínimo 
 e informarlos en los cuadros de textos txt_maximo y txt_minimo respectivamente
-
 '''
 
 
@@ -40,7 +39,40 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+
+        cont = 0
+
+        while True:
+
+            numero = prompt("Titulo","Ingresar un numero")
+
+            if numero is None:
+                break
+            else:
+
+                cont += 1
+                numero = int(numero)
+
+                if cont == 1:
+                    min = numero
+                    max = numero
+                else:
+                    if numero < min:
+                        min = numero
+                    if numero > max:
+                        max = numero
+                
+        if cont == 0:
+            alert("titulo","No se ingresaron numeros")
+        else:
+            self.txt_maximo.insert(0, max)
+            self.txt_minimo.insert(0, min)
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
