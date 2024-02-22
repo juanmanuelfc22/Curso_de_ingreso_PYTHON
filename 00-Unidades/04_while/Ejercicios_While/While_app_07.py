@@ -36,7 +36,28 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+
+        suma = 0
+        contador = 0
+
+        while True:
+            numero = prompt("Titulo","Ingresar un numero")
+            if numero is None:
+                break
+            else:
+                numero = int(numero)
+                contador += 1
+                suma += numero
+
+        promedio = int(suma / contador)
+
+        if contador == 0:
+            alert("Titulo","No se ingresron numeros. Todo es cero(0)")
+        else:
+            alert("Titulo", f"La suma es {suma} y el promedio {promedio}")
+
+
+
 
     
 if __name__ == "__main__":
