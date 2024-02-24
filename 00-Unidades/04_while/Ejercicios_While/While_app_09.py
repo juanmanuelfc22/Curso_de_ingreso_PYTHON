@@ -53,14 +53,10 @@ class App(customtkinter.CTk):
                 cont += 1
                 numero = int(numero)
 
-                if cont == 1:
+                if cont == 1 or numero < min:
                     min = numero
+                if cont == 1 or numero > max:
                     max = numero
-                else:
-                    if numero < min:
-                        min = numero
-                    if numero > max:
-                        max = numero
                 
         if cont == 0:
             alert("titulo","No se ingresaron numeros")

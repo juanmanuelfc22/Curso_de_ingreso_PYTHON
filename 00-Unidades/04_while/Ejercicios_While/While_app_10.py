@@ -64,7 +64,7 @@ class App(customtkinter.CTk):
                     cant_ceros += 1
 
 
-        dif_pos_neg = suma_pos + suma_neg
+        dif_pos_neg = cant_pos + cant_neg
 
         resultado = (
             f"Cant de positivos:\t\t{cant_pos}\n"
