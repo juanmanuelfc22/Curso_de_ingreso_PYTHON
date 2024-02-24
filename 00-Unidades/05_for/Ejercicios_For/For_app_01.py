@@ -28,7 +28,16 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass 
+
+        for i in range(1, 6):
+            alert("titulo", f"{i}")
+
+        # ejemplo análogo con while
+        # j = 1
+        # while j <= 5:
+        #     alert("titulo", f"ahora con while {j}")
+        #     j += 1
+
        
             
 
