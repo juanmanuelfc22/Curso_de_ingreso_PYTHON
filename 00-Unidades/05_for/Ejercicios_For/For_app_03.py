@@ -32,7 +32,20 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        cant = self.txt_repetir.get()
+        cant = int(cant)
+
+        for i in range(0, cant):
+            alert("titulo", f"Hola UTN FRA {i+1}")
+
+        # el equivalente con while
+        # contador = 1
+        # while contador <= cant:
+        #     alert("titulo", f"Hola UTN FRA con while {contador}")
+        #     contador += 1
+
+
 
         
     
