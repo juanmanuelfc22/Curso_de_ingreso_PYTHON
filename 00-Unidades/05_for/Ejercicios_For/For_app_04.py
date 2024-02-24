@@ -26,7 +26,20 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        # Al presionar el botón 'Mostrar' pedir 10 valores por prompt  
+        # o hasta que el usuario ingrese el valor 9 (se deberá utilizar 'BREAK').
+
+        for i in range(1, 11):
+            valor = prompt("titulo", "Ingresar un numero")
+            if valor == None or valor == "9":
+                break
+            else:
+                alert("titulo", f"El valor ingresado es: {valor}")
+
+
+
+
+
         
     
 if __name__ == "__main__":
