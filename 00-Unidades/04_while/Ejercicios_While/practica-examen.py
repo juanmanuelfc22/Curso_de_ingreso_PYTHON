@@ -39,8 +39,9 @@ class App(customtkinter.CTk):
         cont_fiebre = 0
         cont_menor = 0
         cont_menor_y_fiebre = 0
-        acumu_fiebre = 0
+        acumu_fiebre_menor = 0
         mombre_temp_mas_baja_fem = ""
+        bandera_menor_fem = False
 
         while cont_while < 3:
 
@@ -100,7 +101,7 @@ class App(customtkinter.CTk):
             # cont de personas menores que tieneen fiebre
             if edad < 18 and temp >= 37:
                 cont_menor_y_fiebre = cont_menor_y_fiebre + 1
-                acumu_fiebre = acumu_fiebre + temp
+                acumu_fiebre_menor = acumu_fiebre_menor + temp
 
             # Si la persona es de sexo f y registra fiebre, guardar
             # su nombre y su temp registrada de fiebre
@@ -108,12 +109,14 @@ class App(customtkinter.CTk):
             # (mujer con fiebre)
 
             if (sexo == "f" and temp >= 37):
+                bandera_menor_fem = True
                 mombre_temp_mas_baja_fem = nombre
                 temp_mas_baja_fem = temp
 
             # si bandera de la mujer de arriba existe, y si su temp es más
             # baja de la registrada, guardar los datos otra vez: nombre y temp
-            if (sexo == "f" and temp < temp_mas_baja_fem):
+            # if (sexo == "f" and temp < temp_mas_baja_fem):
+            if (bandera_menor_fem == True and temp < temp_mas_baja_fem):
                 mombre_temp_mas_baja_fem = nombre
                 temp_mas_baja_fem = temp
 
@@ -121,19 +124,7 @@ class App(customtkinter.CTk):
             cont_while = cont_while + 1
 
 
-        # probemos las variables declaradas previamente
-        # cont_personas = 0 OK
-        # cont_masc = 0
-        # cont_fem = 0
-        # cont_nb = 0
-        # cont_fiebre = 0
-        # cont_menor = 0
-        # cont_menor_y_fiebre = 0
-        # acumu_fiebre = 0
-        # registro_temp_mas_baja_fem = False
-        # mombre_temp_mas_baja_fem = ""
-        # temp_mas_baja_fem = 0
-
+        '''
         # verificando la cant de personas
         print(f"cantidad de: {cont_personas}")
         # verificando la cant de hombres
@@ -146,12 +137,13 @@ class App(customtkinter.CTk):
         print(f"cantidad personas con fiebre: {cont_fiebre}")
         # verificando la cant de menores de edad con fiebre
         print(f"cantidad menores con fiebre: {cont_menor_y_fiebre}")
-        # verificando el acumulador de fiebre
-        print(f"El total de fiebre registrada es de: {acumu_fiebre}")
         # verificand el nombre y temp de la persona fem con temp mas baja
         print(f"{mombre_temp_mas_baja_fem} tiene la temp mas baja fem con {temp_mas_baja_fem}")
+        '''
 
-        # informar el sexo más ingresado
+
+        # Pregunta A
+        # informar cual fue el sexo más ingresado
         if cont_masc > cont_fem and cont_masc > cont_nb:
             print("El sexo más ingresado fue el masculino")
         elif cont_fem > cont_masc and cont_fem > cont_nb:
@@ -167,12 +159,33 @@ class App(customtkinter.CTk):
         else:
             print("Error en los computos")
 
-        # Informar el porcentaje de personas con y sin fiebre
+        # Pregunta B
+        # informar el % de las personas con o sin fiebre
         porcentaje_con_fiebre = (cont_fiebre / cont_personas) * 100
         porcentaje_con_fiebre = round(porcentaje_con_fiebre, 2)
         porcentaje_sin_fiebre = round((100 - porcentaje_con_fiebre), 2)
         print(f"El % de personas con fiebre es del {porcentaje_con_fiebre}%")
         print(f"El % de personas sin fiebre es del {porcentaje_sin_fiebre}%")
+
+        # Pregunta 1 para DNI terminado en 8
+        # informar la cantidad de personas menores de edad (menores de 18)
+        print(f"La cant de personas menores de edad es {cont_menor}")
+
+        # Pregunta 2 para DNI terminado en 8
+        # informar la temp promedio en en las personas menores de edad
+        promedio_temp_menores = acumu_fiebre_menor / cont_menor_y_fiebre
+        promedio_temp_menores = round(promedio_temp_menores)
+        if cont_menor_y_fiebre == 0:
+            print("No hay registro de menores con fiebre")
+        else:
+            print(f"El promedio de temp de los menores es {promedio_temp_menores}")
+
+        # Pregunta C
+        # informar la persona de sexo fem con la temp más baja si la hay
+        if bandera_menor_fem == True:
+            print(f"La persona de sex fem con la temp más baja es {mombre_temp_mas_baja_fem}")
+        else:
+            print("No hay registro de persona de sexo fem con temperatura")
 
 
 
