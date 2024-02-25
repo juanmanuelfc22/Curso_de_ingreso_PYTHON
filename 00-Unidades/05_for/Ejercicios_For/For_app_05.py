@@ -27,7 +27,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        valor = int(prompt("titulo", "Ingresar un numero"))
+
+
+
+
+
+
             
         
     
