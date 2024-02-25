@@ -11,9 +11,6 @@ apellido: Fernández Casenave
 ---
 Ejercicio:  Practica examen
 ---
-Enunciado:
-Al presionar el botón ‘Mostrar Iteración’, mostrar mediante alert 
-10 repeticiones con números ASCENDENTE desde el 1 al 10
 '''
 
 
@@ -46,20 +43,25 @@ class App(customtkinter.CTk):
         while cont_while < 5:
 
             # Prompts y validaciones iniciales
+            # Pedir el nombre de la persona
             nombre = prompt("Nombre", "Ingresar nombre")
             while (nombre == None or nombre == ""):
                 nombre = prompt("Nombre", "Ingresar un nombre válido")
-            
+           
+            # Pedir la temperatura de la persona
             temp = prompt("Temperatura", "Ingresar temperatura")
             temp = int(temp)
             while (temp == None or temp < 35 or temp > 42):
                 msg_temp_error = "Para la temp ingresar un num entre 35 y 42"
                 temp = prompt("Temperatura",msg_temp_error)
+                temp = int(temp)
 
+            # Pedir el sexo de la persona
             sexo = prompt("Sexo", "Ingresar sexo: 'm', 'f' ó 'nb'")
             while (sexo == None or sexo == "" or not(sexo == "m" or sexo == "f" or sexo == "nb")):
                 sexo = prompt("Sexo", "Ingresar solo 'm', 'f' ó 'nb'")
 
+            # Pedir la edad de la persona
             edad = prompt("Edad", "Ingresar edad")
             edad = int(edad)
             while (edad == None or edad <= 0):
@@ -80,7 +82,7 @@ class App(customtkinter.CTk):
             cont_personas = cont_personas + 1
 
             # contador de los sexos para luego informar la cant de personas
-            # de sexo fem y mas
+            # de sexo m, f ó nb
             if sexo == "m":
                 cont_masc = cont_masc + 1
             elif sexo == "f":
@@ -88,9 +90,7 @@ class App(customtkinter.CTk):
             else:
                 cont_nb = cont_nb + 1
 
-            # contador de personas con fiebre y acumulador de la "cant"
-            # de fiebre para luego sacar: % de personas con y sin fiebre como
-            #  así también la temp promedio de las personas menores de edad
+            # contador de personas con fiebre
             if temp >= 37:
                 cont_fiebre = cont_fiebre + 1
 
@@ -104,23 +104,22 @@ class App(customtkinter.CTk):
                 acumu_fiebre_menor = acumu_fiebre_menor + temp
 
             # Si la persona es de sexo f y registra fiebre, guardar
-            # su nombre y su temp registrada de fiebre
-            # también cambiar el valor de la bandera si existe tal perosona
-            # (mujer con fiebre)
-
+            # su nombre y su registro de fiebre
+            # también cambiar el valor de la variable bandera para indicar que
+            # la persona de esa persona == True
             if (sexo == "f" and temp >= 37):
                 bandera_menor_fem = True
                 mombre_temp_mas_baja_fem = nombre
                 temp_mas_baja_fem = temp
 
-            # si bandera de la mujer de arriba existe, y si su temp es más
-            # baja de la registrada, guardar los datos otra vez: nombre y temp
-            # if (sexo == "f" and temp < temp_mas_baja_fem):
-            if (bandera_menor_fem == True and temp < temp_mas_baja_fem):
+            # si la bandera de la mujer de arriba == True, y si su temp es más
+            # baja de la ya está registrada, guardar los datos otra vez:
+            # nombre y temp
+            if (bandera_menor_fem == True and temp < temp_mas_baja_fem and sexo == "f"):
                 mombre_temp_mas_baja_fem = nombre
                 temp_mas_baja_fem = temp
 
-            # Darle otra vuelta de tuerca al while
+            # Agregar +1 al contador del bucle
             cont_while = cont_while + 1
 
 
@@ -157,6 +156,7 @@ class App(customtkinter.CTk):
         elif cont_masc == cont_nb and cont_masc > cont_fem:
             print("Los sexos más ingresados fueron los masculinos y no binarios")
         else:
+            # Esta opción nunca debería ocurrir
             print("Error en los computos")
 
         # Pregunta B
