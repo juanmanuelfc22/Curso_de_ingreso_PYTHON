@@ -43,7 +43,7 @@ class App(customtkinter.CTk):
         mombre_temp_mas_baja_fem = ""
         bandera_menor_fem = False
 
-        while cont_while < 3:
+        while cont_while < 5:
 
             # Prompts y validaciones iniciales
             nombre = prompt("Nombre", "Ingresar nombre")
