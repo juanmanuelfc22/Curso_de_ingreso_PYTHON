@@ -55,23 +55,23 @@ class App(customtkinter.CTk):
                 numero = int(numero)
 
                 if numero > 0:
-                    cant_pos += 1
-                    suma_pos += numero
+                    cant_pos = cant_pos + 1
+                    suma_pos = suma_pos + numero
                 elif numero < 0:
-                    cant_neg += 1
-                    suma_neg += numero
+                    cant_neg = cant_neg + 1
+                    suma_neg = suma_neg + numero
                 else:
-                    cant_ceros += 1
+                    cant_ceros = cant_ceros + 1
 
 
-        dif_pos_neg = cant_pos + cant_neg
+        dif_pos_neg = cant_pos - cant_neg
 
         resultado = (
             f"Cant de positivos:\t\t{cant_pos}\n"
             f"Suma de positivos:\t{suma_pos}\n"
             f"Cant de negativos:\t{cant_neg}\n"
             f"Suma de negativos:\t{suma_neg}\n"
-            f"Cant de ceros:\t\t{cant_neg}\n"
+            f"Cant de ceros:\t\t{cant_ceros}\n"
             f"Dif de pos y neg:\t\t{dif_pos_neg}\n"
         )
 
