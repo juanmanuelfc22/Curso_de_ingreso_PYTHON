@@ -41,6 +41,8 @@ class App(customtkinter.CTk):
     def btn_comenzar_ingreso_on_click(self):
 
         cont = 0
+        minimo = 0
+        maximo = 0
 
         while True:
 
@@ -53,16 +55,20 @@ class App(customtkinter.CTk):
                 cont += 1
                 numero = int(numero)
 
-                if cont == 1 or numero < min:
-                    min = numero
-                if cont == 1 or numero > max:
-                    max = numero
-                
+                if (cont == 1):
+                    minimo = numero
+                    maximo = numero
+                else:
+                    if numero < minimo:
+                        minimo = numero
+                    if numero > maximo:
+                        maximo = numero
+
         if cont == 0:
             alert("titulo","No se ingresaron numeros")
         else:
-            self.txt_maximo.insert(0, max)
-            self.txt_minimo.insert(0, min)
+            self.txt_maximo.insert(0, maximo)
+            self.txt_minimo.insert(0, minimo)
 
 
 

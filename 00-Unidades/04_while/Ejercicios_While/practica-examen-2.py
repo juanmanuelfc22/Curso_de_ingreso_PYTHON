@@ -64,7 +64,7 @@ class App(customtkinter.CTk):
             detalle_persona = (
                 f"Nombre: {nombre}\n"
                 f"Temp: {temp}\n"
-                f"Seso: {sexo}\n"
+                f"Sexo: {sexo}\n"
                 f"Edad: {edad}\n"
             )
 
@@ -146,7 +146,6 @@ class App(customtkinter.CTk):
             print(f"El nombre de la mujer con temp más baja es {nombre_temp_fem_mas_baja}")
         else:
             print("No se registraron mujeres para indicar su temp más baja")
-
 
     
 if __name__ == "__main__":
