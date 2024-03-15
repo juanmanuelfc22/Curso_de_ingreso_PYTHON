@@ -1,6 +1,6 @@
 # Tmux cheetsheets
 
-### Shortcuts
+### Shortcuts hello
 
 | Shortcut  | Description   |
 |-------------- | -------------- |
