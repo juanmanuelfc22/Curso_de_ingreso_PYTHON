@@ -19,7 +19,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-NOMBRE = "" # Nombre del alumno
+NOMBRE = "Juanma"
 
 """
 #Nos encargan el desarrollo de una aplicación que le permita a sus usuarios operar 
@@ -89,10 +89,10 @@ class App(customtkinter.CTk):
         self.btn_mostrar_todos.grid(row=6, pady=10, columnspan=2, sticky="nsew")
     
         #PUEDE MODIFICAR LOS DATOS A SU ANTOJO, A EFECTOS DE REALIZAR PRUEBAS
-        self.lista_nombre = ["Pepe", "Paola", "Dardo", "Fatiga", "Maria"]
-        self.lista_monto = [20000,30000,40000,50000,60000]
-        self.lista_tipo_instrumento = ["CEDEAR","BONOS","MEP","CEDEAR","CEDEAR"]
-        self.lista_cantidad_instrumento = [20, 35, 199, 100, 80]
+        # self.lista_nombre = ["Pepe", "Paola", "Dardo", "Fatiga", "Maria"]
+        # self.lista_monto = [20000,30000,40000,50000,60000]
+        # self.lista_tipo_instrumento = ["CEDEAR","BONOS","MEP","CEDEAR","CEDEAR"]
+        # self.lista_cantidad_instrumento = [20, 35, 199, 100, 80]
     
     def btn_cargar_datos_on_click(self):
         pass
